@@ -1,0 +1,88 @@
+.back{
+    width:40%;
+    position: absolute;
+    background-color: rgba(0,0,0,0.8);
+    box-sizing: border-box;
+    padding: 40px;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    box-shadow: 0px 20px 30px rgba(0,0,0,0.5);
+    padding-top:10px;
+    border-radius: 20px;
+}
+
+
+
+.back h2{
+    color: azure;
+    text-align:center ;
+    font-weight: 500;
+    
+}
+
+.back .inputbox{
+    position: relative;
+
+}
+
+.back .inputbox input{
+    letter-spacing: 1px;
+    display: block;
+width:100%;
+color:#ffffff;
+background: transparent;
+padding: 10px 0;
+font-size: 16px;
+border:none;
+outline:none;
+margin-bottom: 30px;
+border-bottom: 2px solid #fff;
+}
+
+.back .inputbox label{
+    position: absolute;
+    letter-spacing: 1px;
+
+    top: 0;
+    left: 0;
+    text-transform: capitalize;
+    padding: 10px 0;
+    font-size: 20px;
+    color:#ffffff;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.back .inputbox input:focus ~ label,
+.back .inputbox input:valid ~ label
+    {
+    top:-25px;
+    color: #ff5050;
+    font-size: 17px;
+   outline: none;
+}
+
+.back .inputbox input:invalid
+    {
+    
+        box-shadow: none;
+}
+
+.back  button{
+    border: none;
+    outline: none;
+    background-color: #fff;
+    text-transform: uppercase;
+    padding:5px 8px;
+    border-radius: 3px;
+    color: #000000;
+cursor: pointer;
+font-weight: 500;
+transition: 0.5s;
+}
+
+.back  button:hover{
+    background-color: #ff5050;
+    border-radius: 5px;
+}
