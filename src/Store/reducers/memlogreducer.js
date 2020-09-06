@@ -1,7 +1,7 @@
 import * as actiontype from '../Actions/actiontypes'
 
 const initialState={
-    username:'',
+    email:'',
     password:''
 }
 
@@ -10,10 +10,10 @@ const reducer=(state=initialState,action)=>{
     switch(action.type){
     
     case(actiontype.STORING):{
-
+console.log('storing data');
         return {
             ...state,
-            username:action.username,
+            email:action.email,
             password:action.password
         }
     }
