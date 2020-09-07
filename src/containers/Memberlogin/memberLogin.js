@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 // import Trueauth from '../../components/MemLogin/authtrue/trueauth'
 import {storeData} from '../../Store/Actions/memlogactions'
 import { connect } from 'react-redux'
+import Spinner from '../../components/UI/Spinner/Spinner'
 
 class memberLogin extends Component{
 
@@ -37,29 +38,70 @@ this.setState({email:event.target.value})
 
     render(){
       
-        console.log(this.state.Auth);
+      let errormsg=null;
+
+if(this.props.error){
+  errormsg=(<p style={{color:'#ff5050',fontSize:'10px',textAlign:'center'}}>{this.props.error.message}</p>)
+}
+        // console.log(this.state.Auth);
+        let form=(
+          <div className={classes.back}>
+          <h2>LOGIN</h2>
+          {errormsg}
+            <form>
+              <div className={classes.inputbox}>
+                <input type='email' name='email' onChange={(event)=>this.changingu(event)} value={this.state.email} required/>
+                <label>Email</label>
+              </div>  
+              <div className={classes.inputbox}>  
+                <input type='password' name='password' onChange={(event)=>this.changingp(event)} value={this.state.pass} required/>
+                <label>password</label>
+              </div>  
+              <button onClick={this.clicked}>Submit</button>
+            </form>
+          </div>
+        )
+
+if(this.props.loading){
+  form=<Spinner/>;
+}
+
+
+
+
 
         return(
-          
-            <div className={classes.back}>
-            <h2>LOGIN</h2>
-              <form>
-                <div className={classes.inputbox}>
-                  <input type='email' name='email' onChange={(event)=>this.changingu(event)} value={this.state.email} required/>
-                  <label>Email</label>
-                </div>  
-                <div className={classes.inputbox}>  
-                  <input type='password' name='password' onChange={(event)=>this.changingp(event)} value={this.state.pass} required/>
-                  <label>password</label>
-                </div>  
-                <button onClick={this.clicked}>Submit</button>
-              </form>
-            </div>
+          <div>
+          {form}
+          </div>
+
+            // <div className={classes.back}>
+            // <h2>LOGIN</h2>
+            //   <form>
+            //     <div className={classes.inputbox}>
+            //       <input type='email' name='email' onChange={(event)=>this.changingu(event)} value={this.state.email} required/>
+            //       <label>Email</label>
+            //     </div>  
+            //     <div className={classes.inputbox}>  
+            //       <input type='password' name='password' onChange={(event)=>this.changingp(event)} value={this.state.pass} required/>
+            //       <label>password</label>
+            //     </div>  
+            //     <button onClick={this.clicked}>Submit</button>
+            //   </form>
+            // </div>
         )
     }
 }
 
 // ------------------------------redux logic-------------------------------------
+const mapStateToProps=state=>{
+  return{
+  loading:state.memlog.loading,
+  error:state.memlog.error
+
+  }
+  }
+
 const mapDispatchToProps=dispatch=>{
   return{
     storelogdata:(email,pass)=>dispatch(storeData(email,pass))
@@ -67,7 +109,7 @@ const mapDispatchToProps=dispatch=>{
   }
   }
 
-export default connect(null,mapDispatchToProps)(memberLogin)
+export default connect(mapStateToProps,mapDispatchToProps)(memberLogin)
 // ------------------------------redux logic-------------------------------------
 
 // export default memberLogin

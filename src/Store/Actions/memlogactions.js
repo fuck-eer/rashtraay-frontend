@@ -39,12 +39,12 @@ export const storeData=(email,pass)=>{
             returnSecureToken:true
         }
         Axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCfUKoVzI6fKuAPwJqWqdXGa5GcHS4b0BY',authdata)
-        .then(res=>{
-            console.log(res.data)
-            dispatch(authSuccess(res.data))})
+        .then(response=>{
+            // console.log(response.data)
+            dispatch(authSuccess(response.data))})
         .catch(err=>{
-            console.log(err);
-            dispatch(authFail(err))})
+            // console.log(err);
+            dispatch(authFail(err.response.data.error))})
     }
 }
 

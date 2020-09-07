@@ -1,4 +1,4 @@
-export const STORING='STORING'
+
 export const AUTHSTART='AUTHSTART'
 export const AUTHSUCCESS='AUTHSUCCESS'
 export const AUTHFAIL='AUTHFAIL'
