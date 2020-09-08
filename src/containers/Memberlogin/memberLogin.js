@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 import Spinner from '../../components/UI/Spinner/Spinner'
 import { Redirect } from 'react-router'
 
+
 class memberLogin extends Component{
 
   state={
@@ -69,12 +70,15 @@ if(this.props.loading){
   form=<Spinner/>;
 }
 
-
-
+let auth=null
+if(this.props.token){
+  auth=<Redirect to='/Data' />
+}
 
 
         return(
           <div>
+          {auth}
           {form}
           </div>
 
