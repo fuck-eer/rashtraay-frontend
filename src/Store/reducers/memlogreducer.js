@@ -6,6 +6,7 @@ const initialState={
     userId:null,
     error:null,
     loading:false,
+    page:false
 }
 
 const reducer=(state=initialState,action)=>{
@@ -34,7 +35,8 @@ const reducer=(state=initialState,action)=>{
                 token:action.logdata.idToken,
                 userId:action.logdata.localId,
                 refreshToken:action.logdata.refreshToken,
-                loading:false
+                loading:false,
+                page:true
             }
         }
 
@@ -43,7 +45,8 @@ const reducer=(state=initialState,action)=>{
                 ...state,
                 token:null,
                 userId:null,
-                refreshToken:null
+                refreshToken:null,
+                page:false
             }
         }
      

@@ -5,6 +5,7 @@ import React, { Component } from 'react'
 import {storeData} from '../../Store/Actions/memlogactions'
 import { connect } from 'react-redux'
 import Spinner from '../../components/UI/Spinner/Spinner'
+import { Redirect } from 'react-router'
 
 class memberLogin extends Component{
 
@@ -13,6 +14,8 @@ class memberLogin extends Component{
     pass:'',
     Auth:false 
   }
+
+
 
   changingu=(event)=>{
 this.setState({email:event.target.value})
@@ -72,7 +75,7 @@ if(this.props.loading){
 
         return(
           <div>
-          {form}
+          {this.props.page? <Redirect to='/Data'/>:form}
           </div>
 
             // <div className={classes.back}>
@@ -97,8 +100,8 @@ if(this.props.loading){
 const mapStateToProps=state=>{
   return{
   loading:state.memlog.loading,
-  error:state.memlog.error
-
+  error:state.memlog.error,
+  page:state.memlog.page
   }
   }
 

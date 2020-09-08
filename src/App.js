@@ -6,6 +6,7 @@ import Navbar from './components/Navbar/NAVBAR'
 import { Switch, Route, Redirect } from 'react-router';
 import Truek from './components/MemLogin/authtrue/trueauth';
 
+
 function App() {
   return (
    <div>
@@ -16,9 +17,11 @@ function App() {
 <Route path='/Data' exact component={Truek}/>
 <Route path='/logout' exact component={MemLogout}/>
 <Redirect from='/' to='/login'/>
+
    </Switch>
    </div>
   );
 }
 
-export default App;
+
+export default (App);
