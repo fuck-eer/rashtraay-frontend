@@ -1,8 +1,7 @@
 import * as actiontype from '../Actions/actiontypes'
 
 const initialState={
-    email:'',
-    password:'',
+    
     token:null,
     userId:null,
     error:null,
@@ -36,6 +35,15 @@ const reducer=(state=initialState,action)=>{
                 userId:action.logdata.localId,
                 refreshToken:action.logdata.refreshToken,
                 loading:false
+            }
+        }
+
+        case(actiontype.LOGOUT):{
+            return{
+                ...state,
+                token:null,
+                userId:null,
+                refreshToken:null
             }
         }
      

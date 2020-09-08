@@ -41,10 +41,29 @@ export const storeData=(email,pass)=>{
         Axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCfUKoVzI6fKuAPwJqWqdXGa5GcHS4b0BY',authdata)
         .then(response=>{
             // console.log(response.data)
-            dispatch(authSuccess(response.data))})
+            dispatch(authSuccess(response.data))
+            dispatch(exceedTime(response.data.expiresIn))
+
+        })
         .catch(err=>{
             // console.log(err);
             dispatch(authFail(err.response.data.error))})
+    }
+}
+
+export const logout=()=>{
+    // 
+    return{
+        type:actiontype.LOGOUT
+    }
+}
+
+export const exceedTime=(expt)=>{
+    // 
+    return dispatch=>{
+        setTimeout(()=>
+        {dispatch(logout())} 
+            ,expt*1000)
     }
 }
 

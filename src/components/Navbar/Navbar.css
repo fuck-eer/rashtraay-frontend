@@ -1,0 +1,25 @@
+header{
+width: 100%;
+background-color:rgba(0,0,0,0.8);
+}
+
+nav{
+display: flex;
+justify-items: flex-end;
+align-content: center;
+justify-content:flex-end;
+
+}
+
+ul{
+    display: inline-block;
+list-style: none;
+}
+
+a{
+    margin-left:10px ;
+    margin-right:10px ;
+
+    color:white ;
+    text-decoration: none;
+}
