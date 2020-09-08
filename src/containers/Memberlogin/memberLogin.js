@@ -75,7 +75,7 @@ if(this.props.loading){
 
         return(
           <div>
-          {this.props.page? <Redirect to='/Data'/>:form}
+          {form}
           </div>
 
             // <div className={classes.back}>
@@ -99,9 +99,10 @@ if(this.props.loading){
 // ------------------------------redux logic-------------------------------------
 const mapStateToProps=state=>{
   return{
+    token:state.memlog.token,
   loading:state.memlog.loading,
   error:state.memlog.error,
-  page:state.memlog.page
+  
   }
   }
 
