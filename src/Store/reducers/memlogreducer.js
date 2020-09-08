@@ -32,9 +32,9 @@ const reducer=(state=initialState,action)=>{
         case(actiontype.AUTHSUCCESS):{
             return{
                 ...state,
-                token:action.logdata.idToken,
-                userId:action.logdata.localId,
-                refreshToken:action.logdata.refreshToken,
+                token:action.token,
+                userId:action.userId,
+                refreshToken:action.refreshToken,
                 loading:false,
                 page:true
             }

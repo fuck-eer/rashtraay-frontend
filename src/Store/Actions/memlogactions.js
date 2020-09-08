@@ -13,11 +13,13 @@ export const authStart=()=>{
     }
 }
 
-export const authSuccess=(udata)=>{
+export const authSuccess=(token,userid,reftoken)=>{
     // 
     return{
         type:actiontype.AUTHSUCCESS,
-        logdata:udata
+        token:token,
+        userId:userid,
+        refreshToken:reftoken
     }
 }
 
@@ -41,7 +43,12 @@ export const storeData=(email,pass)=>{
         Axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCfUKoVzI6fKuAPwJqWqdXGa5GcHS4b0BY',authdata)
         .then(response=>{
             // console.log(response.data)
-            dispatch(authSuccess(response.data))
+            const expttime=new Date(new Date().getTime()+response.data.expiresIn*1000)
+            localStorage.setItem('token',response.data.idToken)
+            localStorage.setItem('userId',response.data.localId)
+            localStorage.setItem('exptime',expttime)
+            localStorage.setItem('refreshToken',response.data.refreshToken)
+            dispatch(authSuccess(response.data.idToken, response.data.localId,response.data.refreshToken))
             dispatch(exceedTime(response.data.expiresIn))
 
         })
@@ -52,7 +59,11 @@ export const storeData=(email,pass)=>{
 }
 
 export const logout=()=>{
-    // 
+    localStorage.removeItem('token')
+    localStorage.removeItem('userId')
+    localStorage.removeItem('refreshToken')
+    localStorage.removeItem('exptime')
+
     return{
         type:actiontype.LOGOUT
     }
@@ -66,5 +77,30 @@ export const exceedTime=(expt)=>{
             ,expt*1000)
     }
 }
+
+
+export const autoLogin=()=>{
+    return dispatch=>{
+        const token=localStorage.getItem('token');
+        if(!token){
+            dispatch(logout())
+        }
+        else{
+            const expirationTime=new Date(localStorage.getItem('exptime'))
+            if(expirationTime>new Date()){
+                const userId=localStorage.getItem('userId');
+                const refreshToken=localStorage.getItem('refreshToken');
+               dispatch(authSuccess(token,userId,refreshToken))
+               dispatch(exceedTime((expirationTime.getTime()-new Date().getTime())/1000))
+            }
+            else{
+                dispatch(logout())
+            }
+
+        }
+    }
+}
+
+
 
 //'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCfUKoVzI6fKuAPwJqWqdXGa5GcHS4b0BY'
