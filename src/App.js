@@ -4,7 +4,7 @@ import MemLogin from './containers/Memberlogin/memberLogin'
 import MemLogout from './containers/Memberlogin/memberLogout'
 import Navbar from './components/Navbar/NAVBAR'
 import { Switch, Route, Redirect, withRouter } from 'react-router';
-import Truek from './components/MemLogin/authtrue/trueauth';
+import Truek from './containers/Memberlogin/authtrue/trueauth';
 import * as actioncreator from './Store/Actions/memlogactions'
 import { connect } from 'react-redux';
 
