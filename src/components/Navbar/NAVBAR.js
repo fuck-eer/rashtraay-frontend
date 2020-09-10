@@ -2,7 +2,10 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import './Navbar.css'
 import { connect } from 'react-redux'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPowerOff } from '@fortawesome/free-solid-svg-icons'
 
+const logoutCon = <FontAwesomeIcon style={{textAlign:'center',color:'red',fontSize:'22px'}} icon={faPowerOff} />
 
 const navbar=(props)=>{
     return(
@@ -10,7 +13,7 @@ const navbar=(props)=>{
     <nav>
         <ul>
             {props.isAuth?<NavLink to='/Data' exact>DATA</NavLink>:null}
-            {props.isAuth?<NavLink to='/logout' exact>LOGOUT</NavLink>:<NavLink to='/login' exact >Login</NavLink>}
+            {props.isAuth?<NavLink title='Logout' to='/logout' exact>{logoutCon}</NavLink>:<NavLink to='/login' exact >Login</NavLink>}
 
             
         </ul>

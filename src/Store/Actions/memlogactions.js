@@ -54,7 +54,8 @@ export const storeData=(email,pass)=>{
         })
         .catch(err=>{
             // console.log(err);
-            dispatch(authFail(err.response.data.error))})
+            dispatch(authFail(err.response.data.error))
+        })
     }
 }
 
