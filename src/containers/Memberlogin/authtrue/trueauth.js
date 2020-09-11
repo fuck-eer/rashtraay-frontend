@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 import Pdfcard from '../../../components/MemLogin/PDF/pdf cards/pdfcard';
+import Uploader from '../../../components/MemLogin/PDF/pdfUploader/pdfupload';
 
 class truek extends Component{
 
@@ -27,7 +28,15 @@ let style={
              <Pdfcard/>
              <Pdfcard/>
              <Pdfcard/>
-
+             <Pdfcard/>
+             <Pdfcard/>
+             <Pdfcard/>
+             <Pdfcard/>
+             <Pdfcard/>
+             <Pdfcard/>
+             <Pdfcard/>
+             <Pdfcard/>
+             <Uploader/>
          </div>
      );
     }
