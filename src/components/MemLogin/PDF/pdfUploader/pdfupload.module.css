@@ -51,7 +51,7 @@ progress{
     width: 80%;
     height: 3px;
     border-radius: 250px;
-margin: 3px auto 0px auto;
+margin: 3px 7% 0px 5%;
 position: absolute;
 }
 
@@ -64,7 +64,7 @@ progress[value] {
     /* Get rid of default border in Firefox. */
     border: none;
     
-    /* Dimensions */
+    
   }
 
 progress[value]::-webkit-progress-value {
