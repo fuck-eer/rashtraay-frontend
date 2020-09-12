@@ -12,11 +12,12 @@ class uploader extends Component{
     state={
         check:false,
         file:null,
+        progress:0
     }
     
     handleChange=(e)=>{
         if(e.target.files[0]){
-            this.setState({check:true,file:e.target.files[0]})
+            this.setState({check:true,file:e.target.files[0],progress:0})
         }
     }
 
@@ -26,7 +27,7 @@ class uploader extends Component{
         uploadtask.on(
             'state_changed',
             snapshot=>{
-
+this.setState({progress:Math.round((snapshot.bytesTransferred/snapshot.totalBytes)*100)})
             },
             error=>{
 console.log(error);
@@ -50,7 +51,9 @@ this.setState({file:null,check:false})
 let checklist=null
 if(this.state.file){
  checklist=(<div className={classes.popup}>
+    {this.state.progress?<progress value={this.state.progress} max='100'/>:null}
     <p>{this.state.file.name}</p>
+
  </div>)
 }
 

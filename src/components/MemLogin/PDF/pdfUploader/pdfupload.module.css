@@ -46,6 +46,40 @@ font-weight: 600;
   
 }
 
+progress{
+    
+    width: 80%;
+    height: 3px;
+    border-radius: 250px;
+margin: 3px auto 0px auto;
+position: absolute;
+}
+
+progress[value] {
+    /* Reset the default appearance */
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    
+    /* Get rid of default border in Firefox. */
+    border: none;
+    
+    /* Dimensions */
+  }
+
+progress[value]::-webkit-progress-value {
+    background-image:linear-gradient(0.25turn, red, yellow, green);
+    border-radius: 2px;
+   
+  }
+
+  progress[value]::-moz-progress-bar { 
+    background-image:linear-gradient(0.25turn, red, yellow, green);
+    border-radius: 2px;
+  
+  }
+
+
 @media screen and (max-width:600px){
     /* .icon{
     color:#ff4b5c;
