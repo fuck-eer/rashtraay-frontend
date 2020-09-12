@@ -15,7 +15,7 @@ componentDidMount(){
     scriptsRef.listAll()
     .then(res=>{
 res.items.forEach(el=>{
-    scriptsRef.child(el.location.path.split('/').[1]).getMetadata().then(em=>console.log(em))
+    // scriptsRef.child(el.location.path.split('/').[1]).getMetadata().then(em=>console.log(em))
 scriptsRef.child(el.location.path.split('/').[1]).getDownloadURL().then(ek=>{
     this.setState(prev=>({urll:[...prev.urll,ek],naame:[...prev.naame,el.location.path.split('/').[1]]}))
  
