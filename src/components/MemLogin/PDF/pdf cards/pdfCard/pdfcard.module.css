@@ -35,7 +35,7 @@ background-color: rgba(0,0,0,0.8);
 .cardheading{
 display: flex;
 flex-direction:row;
-justify-content: flex-start;
+justify-content:space-around;
 
 
 }
