@@ -23,7 +23,7 @@ class uploader extends Component{
 
     firebaseUpload=()=>{
         const uploadtask=storage.ref(`SCRIPTS/${this.state.file.name}`).put(this.state.file)
-        console.log(uploadtask);
+        // console.log(uploadtask);
         uploadtask.on(
             'state_changed',
             snapshot=>{
@@ -39,7 +39,8 @@ storage
 .getDownloadURL()
 .then(res=>{
 this.setState({file:null,check:false})
-    console.log(res)})
+    // console.log(res)
+})
 .catch(err=>console.log(err))
             }
         )
@@ -47,7 +48,7 @@ this.setState({file:null,check:false})
     }
 
     render(){
-        console.log(this.state.file);
+        // console.log(this.state.file);
 let checklist=null
 if(this.state.file){
  checklist=(<div className={classes.popup}>

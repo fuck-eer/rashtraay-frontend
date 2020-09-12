@@ -42,7 +42,8 @@ justify-content: space-around;
 
 .cardheading p, 
 .cardheading h4{
-    text-align:justify;
+    text-align:right;
+    font-size: 13px;
 margin: 0;
 }
 
