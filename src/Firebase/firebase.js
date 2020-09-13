@@ -2,15 +2,15 @@ import firebase from 'firebase/app'
 import 'firebase/storage'
 
 var firebaseConfig = {
-    apiKey: "AIzaSyCfUKoVzI6fKuAPwJqWqdXGa5GcHS4b0BY",
-    authDomain: "burgerbuilder-ad3a4.firebaseapp.com",
-    databaseURL: "https://burgerbuilder-ad3a4.firebaseio.com",
-    projectId: "burgerbuilder-ad3a4",
-    storageBucket: "burgerbuilder-ad3a4.appspot.com",
-    messagingSenderId: "47762972526",
-    appId: "1:47762972526:web:fe64d573f9038f00566b7f",
-    measurementId: "G-F86DPJ65JG"
-  };
+    apiKey: "AIzaSyAO9NeKDFs0V7BJYoOT2G1FwAzBzNc8nq0",
+    authDomain: "rashtraay-website.firebaseapp.com",
+    databaseURL: "https://rashtraay-website.firebaseio.com",
+    projectId: "rashtraay-website",
+    storageBucket: "rashtraay-website.appspot.com",
+    messagingSenderId: "941601999185",
+    appId: "1:941601999185:web:98324521bd9e377c18eb70",
+    measurementId: "G-MZJBTP26ZK"
+};
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
 
