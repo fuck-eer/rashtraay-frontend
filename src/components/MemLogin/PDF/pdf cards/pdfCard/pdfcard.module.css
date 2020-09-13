@@ -11,7 +11,7 @@ all: unset;
 }
 .card{
 display: flex;
-flex-basis: 280px;
+flex-basis: 220px;
 flex-direction:column;
 
 margin:30px 30px  ;
@@ -35,14 +35,15 @@ background-color: rgba(0,0,0,0.8);
 .cardheading{
 display: flex;
 flex-direction:row;
-justify-content: space-around;
+justify-content:space-around;
 
 
 }
 
 .cardheading p, 
 .cardheading h4{
-    text-align:justify;
+    text-align:right;
+    font-size: 13px;
 margin: 0;
 }
 

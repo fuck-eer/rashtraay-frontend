@@ -15,9 +15,19 @@ var firebaseConfig = {
   firebase.initializeApp(firebaseConfig);
 
   const storage = firebase.storage()
+
+// refrence 
+
+//firebase bucket
+const storageRef=storage.ref();
+
+//Scripts folder 
+const scriptsRef=storageRef.child('SCRIPTS');
+
+
   
 export  {
-    storage, firebase as default
+    storage,scriptsRef,storageRef, firebase as default
   }
  
  

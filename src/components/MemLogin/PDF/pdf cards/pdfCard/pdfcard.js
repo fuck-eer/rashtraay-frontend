@@ -12,12 +12,12 @@ return(
     <div className={classes.card}>
         <div className={classes.cardheading}>
         <p>{fileCon}</p>
-        <h4>title</h4>
+        <h4>{props.tit}</h4>
         </div>
-        <p className={classes.para}>add info</p>
+        <p className={classes.para}>...</p>
         <div className={classes.cardfooter}>
         <h6>Date:</h6>
-        <button>{logoutCon}</button>
+        <a href={props.url} target='_blank'><button>{logoutCon}</button></a>
         </div>
 
     </div>

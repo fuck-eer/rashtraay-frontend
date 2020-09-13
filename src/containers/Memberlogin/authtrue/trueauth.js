@@ -1,41 +1,23 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
-import Pdfcard from '../../../components/MemLogin/PDF/pdf cards/pdfcard';
+import Pdfcards from '../../../components/MemLogin/PDF/pdf cards/pdfCards';
 import Uploader from '../../../components/MemLogin/PDF/pdfUploader/pdfupload';
 
 class truek extends Component{
 
     render(){
 
-let style={
-    display:'flex',
-    flexDirection:'row',
-    flexWrap:'wrap',
-    justifyContent:'center',
-}
+
         let auth=null
         if(this.props.token===null){
             auth=<Redirect to='/login'/>
         }
      return(
      
-         <div style={style}>
+         <div>
          {auth}
-             <Pdfcard/>
-             <Pdfcard/>
-             <Pdfcard/>
-             <Pdfcard/>
-             <Pdfcard/>
-             <Pdfcard/>
-             <Pdfcard/>
-             <Pdfcard/>
-             <Pdfcard/>
-             <Pdfcard/>
-             <Pdfcard/>
-             <Pdfcard/>
-             <Pdfcard/>
-             <Pdfcard/>
+             <Pdfcards/>
              <Uploader/>
          </div>
      );
