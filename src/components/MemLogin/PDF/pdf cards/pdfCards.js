@@ -1,4 +1,4 @@
-import { scriptsRef, storageRef } from '../../../../Firebase/firebase'
+import { scriptsRef } from '../../../../Firebase/firebase'
 import React, { Component } from 'react'
 import Pdfcard from './pdfCard/pdfcard'
 import Spinner from '../../../UI/Spinner/Spinner'
