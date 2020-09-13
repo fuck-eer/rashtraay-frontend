@@ -3,6 +3,8 @@ import classes from './pdfupload.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheckCircle, faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons'
 import { storage } from '../../../../Firebase/firebase'
+import { connect } from 'react-redux'
+import { fileupload } from '../../../../Store/Actions/memlogactions'
 
 const uploadCon = <FontAwesomeIcon className={classes.icon} icon={faCloudUploadAlt} /> 
 const checkCon = <FontAwesomeIcon className={classes.icon} icon={faCheckCircle} /> 
@@ -33,15 +35,19 @@ this.setState({progress:Math.round((snapshot.bytesTransferred/snapshot.totalByte
 console.log(error);
             },
             ()=>{
-storage
-.ref('SCRIPTS')
-.child(this.state.file.name)
-.getDownloadURL()
-.then(res=>{
+// storage
+// .ref('SCRIPTS')
+// .child(this.state.file.name)
+// .getDownloadURL()
+// .then(res=>{
+// this.setState({file:null,check:false})
+//     // console.log(res)
+// })
+// .catch(err=>console.log(err))
+
 this.setState({file:null,check:false})
-    // console.log(res)
-})
-.catch(err=>console.log(err))
+// window.location.reload()
+this.props.onFileUpload();
             }
         )
 
@@ -75,4 +81,10 @@ if(this.state.file){
 
 }
 
-export default uploader
+const mapDispatchToProps=dispatch=>{
+return{
+    onFileUpload:()=>dispatch(fileupload())
+}
+}
+
+export default connect(null,mapDispatchToProps)(uploader)

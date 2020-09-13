@@ -6,7 +6,8 @@ const initialState={
     userId:null,
     error:null,
     loading:false,
-    page:false
+    page:false,
+    uploaded:false
 }
 
 const reducer=(state=initialState,action)=>{
@@ -47,6 +48,20 @@ const reducer=(state=initialState,action)=>{
                 userId:null,
                 refreshToken:null,
                 page:false
+            }
+        }
+
+        case(actiontype.FILEUPLOAD):{
+            return{
+                ...state,
+                uploaded:true
+            }
+        }
+
+        case(actiontype.FILEUPLOADDONE):{
+            return{
+                ...state,
+                uploaded:false
             }
         }
      

@@ -102,6 +102,20 @@ export const autoLogin=()=>{
     }
 }
 
+export const fileupload=()=>{
+    
+    return{
+        type:actiontype.FILEUPLOAD   
+    }
+}
+
+export const fileuploaddone=()=>{
+   
+    return{
+        type:actiontype.FILEUPLOADDONE   
+    }
+}
+
 
 
 //'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key= AIzaSyAO9NeKDFs0V7BJYoOT2G1FwAzBzNc8nq0'

@@ -1,10 +1,10 @@
 import React from 'react'
 import classes from './pdfcard.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowCircleDown,faFilePdf } from '@fortawesome/free-solid-svg-icons'
+import { faArrowCircleDown,faFilePdf, faTrash } from '@fortawesome/free-solid-svg-icons'
 
-const logoutCon = <FontAwesomeIcon className={classes.icon} icon={faArrowCircleDown} />
-
+const downloadCon = <FontAwesomeIcon className={classes.icon} icon={faArrowCircleDown} />
+const delCon = <FontAwesomeIcon className={classes.icon} icon={faTrash} />
 const fileCon = <FontAwesomeIcon className={classes.icon} icon={faFilePdf} />
 
 const pdfcard =(props)=>{
@@ -16,8 +16,9 @@ return(
         </div>
         <p className={classes.para}>{props.type}</p>
         <div className={classes.cardfooter}>
-        <h6>Size:{props.size}</h6>
-        <a href={props.url} target='_blank'><button>{logoutCon}</button></a>
+        <button onClick={props.clicked}>{delCon}</button>
+        <h6 style={{color:'bisque'}}>{Math.round(props.size/1024)}Kb</h6>
+        <a href={props.url} target='_blank'><button>{downloadCon}</button></a>
         </div>
 
     </div>
