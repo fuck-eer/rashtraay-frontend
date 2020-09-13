@@ -40,7 +40,7 @@ export const storeData=(email,pass)=>{
             password:pass,
             returnSecureToken:true
         }
-        Axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCfUKoVzI6fKuAPwJqWqdXGa5GcHS4b0BY',authdata)
+        Axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key= AIzaSyAO9NeKDFs0V7BJYoOT2G1FwAzBzNc8nq0',authdata)
         .then(response=>{
             // console.log(response.data)
             const expttime=new Date(new Date().getTime()+response.data.expiresIn*1000)
@@ -104,4 +104,4 @@ export const autoLogin=()=>{
 
 
 
-//'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCfUKoVzI6fKuAPwJqWqdXGa5GcHS4b0BY'
+//'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key= AIzaSyAO9NeKDFs0V7BJYoOT2G1FwAzBzNc8nq0'
