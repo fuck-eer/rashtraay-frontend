@@ -18,7 +18,7 @@ return(
         <div className={classes.cardfooter}>
         <button onClick={props.clicked}>{delCon}</button>
         <h6 style={{color:'bisque'}}>{Math.round(props.size/1024)}Kb</h6>
-        <a href={props.url} target='_blank'><button>{downloadCon}</button></a>
+        <a href={props.url} target='_blank' rel="noopener noreferrer"><button>{downloadCon}</button></a>
         </div>
 
     </div>
