@@ -14,9 +14,9 @@ return(
         <p>{fileCon}</p>
         <h4>{props.tit}</h4>
         </div>
-        <p className={classes.para}>...</p>
+        <p className={classes.para}>{props.type}</p>
         <div className={classes.cardfooter}>
-        <h6>Date:</h6>
+        <h6>Size:{props.size}</h6>
         <a href={props.url} target='_blank'><button>{logoutCon}</button></a>
         </div>
 
