@@ -9,7 +9,8 @@ import {createStore, combineReducers, applyMiddleware, compose} from 'redux'
 import {Provider} from 'react-redux'
 import { BrowserRouter } from 'react-router-dom';
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+cconst composeEnhancers = process.env.NODE_ENV==='development'?
+window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__:null || compose;
 
 const rootReducer=combineReducers({
   memlog:memlogreducer
