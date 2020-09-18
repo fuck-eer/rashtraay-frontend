@@ -1,0 +1,98 @@
+.Modal{
+border-radius: 20px;
+    background-color:rgba(0,0,0,0.9);
+    display: flex;
+    width: 20%;
+    padding: 35px 30px;
+    padding-bottom: 30px;
+    position: fixed;
+    top: 50%;
+    color:#fff;
+
+    left: 50%;
+    transform: translate(-50%,-50%);
+flex-flow: column;
+justify-content: center;
+align-items: center;
+z-index: 1000;
+
+}
+
+
+.icon{
+    position: absolute;
+    top:-60%;
+    padding: 0;
+    /* background-color: #ff5050; */
+    text-align: center;
+    filter: drop-shadow(0px 2px 4px rgba(255, 255, 255, 0.205));
+    border-radius: 1000px;
+  }
+  .icon h5{
+    border-radius: 1000px;
+    color: #ff5050;
+    font-size: 32px;
+  padding: 12px 17px;
+    border: 2px solid transparent;
+    background-color: rgba(0,0,0,1);
+}
+
+.info{
+   
+text-align: center;
+}
+
+.buttons{
+  margin-top: 10px;
+    width: 90%;
+  margin-top: 10px;
+display: flex;
+flex-flow: row;
+justify-content: space-around;
+align-items: center;
+}
+
+.bt1{
+color: #ff5050;
+cursor: pointer;
+transition: all 0.3s;
+}
+.bt1:hover{
+  font-weight: 600;
+  transform: scale(1.4);
+}
+.bt1:active{
+  font-weight: 600;
+  transform: scale(1.2);
+}
+.bt2{
+  color: #5bff1b;
+  cursor: pointer;
+transition: all 0.3s;
+
+}
+.bt2:hover{
+  transform: scale(1.4);
+  font-weight: 600;
+
+}
+.bt2:active{
+  font-weight: 600;
+  transform: scale(1.2);
+}
+
+
+.backdrop{
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(4px);
+
+}
+

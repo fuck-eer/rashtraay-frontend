@@ -77,10 +77,12 @@ if(this.props.token){
 
 
         return(
+       
           <div>
           {auth}
           {form}
           </div>
+          
 
             // <div className={classes.back}>
             // <h2>LOGIN</h2>

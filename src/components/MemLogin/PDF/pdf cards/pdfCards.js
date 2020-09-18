@@ -4,12 +4,14 @@ import Pdfcard from './pdfCard/pdfcard'
 import Spinner from '../../../UI/Spinner/Spinner'
 import { connect } from 'react-redux'
 import { fileuploaddone } from '../../../../Store/Actions/memlogactions'
+import Modal from '../../../UI/Modal/Modal'
 
 class Pdfcards extends Component{
 _isMounted=false
 state={
     pdfData:[],
-   
+   modalView:false,
+   deletename:null
     // ************************************
     // urll:[],
     // naame:[],
@@ -20,7 +22,7 @@ state={
 }
 
 refresh=()=>{
-    this.setState({pdfData:[]})
+    this.setState({pdfData:[],deletename:null,modalView:false})
 this.settingup()
 }
 
@@ -132,6 +134,15 @@ componentWillUnmount() {
     this._isMounted = false;
   }
 
+toggleModalView=(name)=>{
+    this.setState({modalView:true,deletename:name})
+}
+offmodal=()=>{
+    this.setState({modalView:false,deletename:null})
+
+}
+
+
   deleting=(fileName)=>{
 scriptsRef.child(fileName).delete().then(
 // window.location.reload()
@@ -156,20 +167,23 @@ this.refresh()
         }
 
 
-      
+      let modal=null
         let cards=<Spinner/>;
-
+if(this.state.modalView){
+    modal=<Modal readytodelete={()=>this.deleting(this.state.deletename)} clickk={this.offmodal}/>
+}
     // console.log(cards);
 if(this.state.pdfData.length>0){
    cards= this.state.pdfData.map((e)=>(
-        <Pdfcard tit={e.naame} url={e.urll} type={e.type} size={e.size} key={e.naame} clicked={()=>this.deleting(e.naame)}/>
+        <Pdfcard tit={e.naame} url={e.urll} type={e.type} size={e.size} key={e.naame} clicked={()=>this.toggleModalView(e.naame)}/>
     ))
 } 
 
-
+// clicked={()=>this.deleting(e.naame)}
 
         return(
 <div style={style}>
+{modal}
 {cards}
 </div>
         );
